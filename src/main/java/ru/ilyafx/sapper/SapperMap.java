@@ -73,13 +73,15 @@ public class SapperMap {
         }
         cord.setFlag(true);
         int m = 0;
+        int f = 0;
         for(int y = 0; y<height; y++) {
             for(int x = 0; x<width; x++) {
                 Coordinate coord = get(x,y);
                 if(coord.isMine() && coord.isFlag()) m++;
+                if(coord.isFlag()) f++;
             }
         }
-        if(m == mines) {
+        if(m == mines && f == mines) {
             return true;
         }
         return false;
